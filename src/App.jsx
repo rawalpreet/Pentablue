@@ -9,6 +9,7 @@ import Contact from './pages/Contact';
 import SignUp from './pages/SignUp';
 import Testimonials from './pages/Testimonials';
 import Portfolio from './pages/Portfolio';
+import ParticleBackground from './components/ParticleBackground';
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -26,18 +27,21 @@ function App() {
   const location = useLocation();
 
   return (
-    <Routes location={location} key={location.pathname}>
-      <Route path="/" element={<MainLayout />}>
-        <Route index element={<AnimatedPage><Home /></AnimatedPage>} />
-        <Route path="about" element={<AnimatedPage><About /></AnimatedPage>} />
-        <Route path="services" element={<AnimatedPage><Services /></AnimatedPage>} />
-        <Route path="team" element={<AnimatedPage><Team /></AnimatedPage>} />
-        <Route path="testimonials" element={<AnimatedPage><Testimonials /></AnimatedPage>} />
-        <Route path="work" element={<AnimatedPage><Portfolio /></AnimatedPage>} />
-        <Route path="contact" element={<AnimatedPage><Contact /></AnimatedPage>} />
-        <Route path="signup" element={<AnimatedPage><SignUp /></AnimatedPage>} />
-      </Route>
-    </Routes>
+    <>
+      <ParticleBackground />
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<AnimatedPage><Home /></AnimatedPage>} />
+          <Route path="about" element={<AnimatedPage><About /></AnimatedPage>} />
+          <Route path="services" element={<AnimatedPage><Services /></AnimatedPage>} />
+          <Route path="team" element={<AnimatedPage><Team /></AnimatedPage>} />
+          <Route path="testimonials" element={<AnimatedPage><Testimonials /></AnimatedPage>} />
+          <Route path="work" element={<AnimatedPage><Portfolio /></AnimatedPage>} />
+          <Route path="contact" element={<AnimatedPage><Contact /></AnimatedPage>} />
+          <Route path="signup" element={<AnimatedPage><SignUp /></AnimatedPage>} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 
