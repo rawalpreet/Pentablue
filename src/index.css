@@ -127,13 +127,36 @@ main {
 
 .w-100 { width: 100%; }
 
-/* Background Glow Effects */
+/* Background Effects (3D & Motion) */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50vh;
+    left: -50vw;
+    width: 200vw;
+    height: 200vh;
+    background-image: 
+        linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    transform-origin: center center;
+    transform: perspective(600px) rotateX(70deg) translateZ(-100px);
+    animation: gridMove 15s linear infinite;
+    pointer-events: none;
+    z-index: -2;
+}
+
+@keyframes gridMove {
+    0% { transform: perspective(600px) rotateX(70deg) translateZ(-100px) translateY(0); }
+    100% { transform: perspective(600px) rotateX(70deg) translateZ(-100px) translateY(60px); }
+}
+
 .bg-glow {
     position: fixed;
     border-radius: 50%;
-    filter: blur(100px);
+    filter: blur(120px);
     z-index: -1;
-    opacity: 0.15;
+    opacity: 0.2;
     pointer-events: none;
 }
 
@@ -143,14 +166,28 @@ main {
     width: 50vw;
     height: 50vw;
     background: var(--accent-1);
+    animation: float1 25s ease-in-out infinite alternate;
 }
 
 .bg-glow-2 {
     bottom: -10%;
     right: -10%;
-    width: 40vw;
-    height: 40vw;
+    width: 45vw;
+    height: 45vw;
     background: var(--accent-2);
+    animation: float2 30s ease-in-out infinite alternate;
+}
+
+@keyframes float1 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(15vw, 15vh) scale(1.2); }
+    100% { transform: translate(-5vw, 25vh) scale(0.9); }
+}
+
+@keyframes float2 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-20vw, -10vh) scale(1.1); }
+    100% { transform: translate(10vw, -25vh) scale(0.8); }
 }
 
 /* =========================================
