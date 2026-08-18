@@ -11,11 +11,11 @@ const Testimonials = () => {
           <p className="section-desc">Don't just take our word for it. Hear from the brands we've helped elevate.</p>
         </div>
 
-        <div className="testimonial-carousel reveal active" style={{ display: 'grid', gap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
+        <div className="testimonial-grid reveal active">
           
-          <div className="testimonial-card glass-panel" style={{ padding: '3rem' }}>
-            <Quote className="quote-icon" style={{ top: '1.5rem', left: '1.5rem' }} />
-            <p className="testimonial-text" style={{ fontSize: '1.1rem' }}>"Pentableu completely transformed our digital presence. Their strategic approach to our social media and website redesign led to a 150% increase in lead generation within just three months."</p>
+          <div className="testimonial-card glass-panel">
+            <Quote className="quote-icon" />
+            <p className="testimonial-text">"Pentableu completely transformed our digital presence. Their strategic approach to our social media and website redesign led to a 150% increase in lead generation within just three months."</p>
             <div className="client-info">
               <div className="client-avatar"></div>
               <div>
@@ -25,8 +25,8 @@ const Testimonials = () => {
             </div>
           </div>
 
-          <div className="testimonial-card glass-panel" style={{ padding: '3rem' }}>
-            <Quote className="quote-icon" style={{ top: '1.5rem', left: '1.5rem' }} />
+          <div className="testimonial-card glass-panel">
+            <Quote className="quote-icon" />
             <p className="testimonial-text" style={{ fontSize: '1.1rem' }}>"The photography and videography team captured the essence of our brand perfectly. The content they delivered was breathtaking and highly engaging for our audience."</p>
             <div className="client-info">
               <div className="client-avatar" style={{ background: 'var(--accent-1)' }}></div>

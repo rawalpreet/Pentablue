@@ -10,9 +10,9 @@ const About = () => {
           <p className="section-desc">We are a passionate team of creators, strategists, and technologists dedicated to building brands that stand out in the digital world.</p>
         </div>
         
-        <div className="glass-panel" style={{ padding: '4rem', marginTop: '3rem' }}>
+        <div className="glass-panel about-story-panel">
           <h2>Our Story</h2>
-          <p style={{ marginTop: '1rem', color: 'var(--text-secondary)' }}>
+          <p className="about-story-text">
             Founded over a decade ago, Pentableu started as a small content creation studio. Today, we've grown into a full-service digital agency helping brands across the globe achieve their highest potential through innovative marketing, stunning visuals, and cutting-edge web development.
           </p>
         </div>

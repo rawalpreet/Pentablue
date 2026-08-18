@@ -761,12 +761,71 @@ main {
 }
 
 /* =========================================
+   PAGE SPECIFIC LAYOUT STYLES
+   ========================================= */
+.services-zigzag {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.services-zigzag.reverse {
+    direction: rtl;
+}
+
+.services-zigzag.reverse > * {
+    direction: ltr;
+}
+
+.service-visual-panel {
+    direction: ltr;
+    padding: 3rem;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.service-visual-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+}
+
+.about-story-panel {
+    padding: 4rem;
+    margin-top: 3rem;
+}
+
+.about-story-text {
+    margin-top: 1rem;
+    color: var(--text-secondary);
+}
+
+.testimonial-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.testimonial-card {
+    padding: 3rem;
+    position: relative;
+}
+
+/* =========================================
    RESPONSIVE DESIGN
    ========================================= */
 @media (max-width: 992px) {
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
+    }
+    
+    .services-zigzag {
+        gap: 2.5rem;
     }
 }
 
@@ -788,7 +847,47 @@ main {
         padding: 2rem;
     }
     
+    .quote-icon {
+        top: 1.5rem;
+        left: 1.5rem;
+        width: 32px;
+        height: 32px;
+    }
+    
     .contact-form-wrapper {
         padding: 2rem;
+    }
+    
+    .services-zigzag {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .services-zigzag.reverse {
+        direction: ltr;
+    }
+    
+    .service-visual-panel {
+        padding: 2rem;
+        min-height: 250px;
+    }
+    
+    .about-story-panel {
+        padding: 2rem;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding-top: 60px;
+    }
+    
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+    
+    .btn {
+        width: 100%;
     }
 }

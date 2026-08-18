@@ -87,34 +87,18 @@ const Services = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '4rem',
-                alignItems: 'center',
-                direction: i % 2 !== 0 ? 'rtl' : 'ltr',
-              }}
+              className={`services-zigzag ${i % 2 !== 0 ? 'reverse' : ''}`}
             >
               {/* Visual Panel */}
               <div
-                className="glass-panel"
+                className="glass-panel service-visual-panel"
                 style={{
-                  direction: 'ltr',
-                  padding: '3rem',
-                  minHeight: '350px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
                   background: `linear-gradient(135deg, ${service.color}11, ${service.color}22)`,
                   border: `1px solid ${service.color}33`,
-                  flexDirection: 'column',
-                  gap: '1.5rem',
                 }}
               >
-                <div style={{ color: service.color }}>{service.icon}</div>
-                <h2 style={{
-                  fontSize: '2.5rem',
-                  textAlign: 'center',
+                <div style={{ color: service.color }} className="service-visual-icon">{service.icon}</div>
+                <h2 className="service-visual-title" style={{
                   background: `linear-gradient(135deg, #fff, ${service.color})`,
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
