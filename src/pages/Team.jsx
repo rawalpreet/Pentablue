@@ -47,7 +47,7 @@ const Team = () => {
               initial="hidden"
               animate="visible"
               whileHover={{ y: -10, borderColor: member.color }}
-              className="glass-panel"
+              className="glass-panel team-card"
               style={{
                 padding: '2.5rem',
                 borderRadius: '20px',
@@ -57,6 +57,7 @@ const Team = () => {
             >
               {/* Avatar */}
               <motion.div
+                className="team-avatar"
                 whileHover={{ scale: 1.05 }}
                 style={{
                   width: '80px',
@@ -86,8 +87,8 @@ const Team = () => {
               </p>
 
               {/* Social Links */}
-              <div style={{ display: 'flex', gap: '0.75rem' }}>
-                <a href="#" style={{
+              <div className="team-socials" style={{ display: 'flex', gap: '0.75rem' }}>
+                <a href="#" className="team-social-link" style={{
                   width: '36px', height: '36px', borderRadius: '50%',
                   background: 'rgba(255,255,255,0.05)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -97,7 +98,7 @@ const Team = () => {
                 }}>
                   in
                 </a>
-                <a href="#" style={{
+                <a href="#" className="team-social-link" style={{
                   width: '36px', height: '36px', borderRadius: '50%',
                   background: 'rgba(255,255,255,0.05)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',

@@ -48,7 +48,7 @@ const Portfolio = () => {
               initial="hidden"
               animate="visible"
               whileHover={{ y: -12, scale: 1.02 }}
-              className="glass-panel"
+              className="glass-panel portfolio-card"
               style={{
                 overflow: 'hidden',
                 cursor: 'pointer',
@@ -56,7 +56,7 @@ const Portfolio = () => {
               }}
             >
               {/* Image Placeholder */}
-              <div style={{
+              <div className="portfolio-img-box" style={{
                 height: '220px',
                 background: `linear-gradient(135deg, ${project.color}22, ${project.color}55)`,
                 display: 'flex',
@@ -96,7 +96,7 @@ const Portfolio = () => {
               <div style={{ padding: '2rem' }}>
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{project.title}</h3>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '1.5rem' }}>{project.desc}</p>
-                <a href="#" style={{
+                <a href="#" className="portfolio-link" style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.5rem',

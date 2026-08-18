@@ -96,12 +96,19 @@ main {
 }
 
 .glass-panel {
-    background: var(--bg-surface);
+    background: var(--glass-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: var(--glass-border);
     border-radius: 20px;
     box-shadow: var(--glass-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-panel:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 240, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.14);
 }
 
 .badge {
@@ -162,6 +169,26 @@ main {
     transition: var(--transition);
     border: none;
     font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shimmer sweep on all buttons */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.18), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.55s ease;
+    pointer-events: none;
+}
+
+.btn:hover::before {
+    left: 160%;
 }
 
 .btn-primary {
@@ -171,8 +198,8 @@ main {
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.55);
 }
 
 .btn-secondary {
@@ -182,7 +209,8 @@ main {
 }
 
 .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
     transform: translateY(-2px);
 }
 
@@ -193,8 +221,10 @@ main {
 }
 
 .btn-outline:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent-1);
+    color: var(--accent-1);
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
 }
 
 .icon-sm {
@@ -813,6 +843,123 @@ main {
 .testimonial-card {
     padding: 3rem;
     position: relative;
+}
+
+/* =========================================
+   HOVER EFFECTS (Premium)
+   ========================================= */
+
+/* Portfolio Card Hover */
+.portfolio-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.portfolio-img-box {
+    transition: transform 0.5s ease;
+    transform-origin: center;
+}
+
+.portfolio-card:hover .portfolio-img-box {
+    transform: scale(1.05);
+}
+
+.portfolio-img-box::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(7, 7, 10, 0.9) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.portfolio-card:hover .portfolio-img-box::after {
+    opacity: 1;
+}
+
+.portfolio-card:hover .portfolio-link {
+    transform: translateX(5px);
+    text-shadow: 0 0 10px currentColor;
+}
+
+.portfolio-link {
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Team Card Hover */
+.team-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.team-avatar {
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.team-card:hover .team-avatar {
+    transform: scale(1.1) rotate(5deg) !important; /* override inline motion scale */
+}
+
+.team-social-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.team-social-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--text-primary);
+    transform: scale(0);
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: -1;
+}
+
+.team-social-link:hover::before {
+    transform: scale(1);
+}
+
+.team-social-link:hover {
+    color: #000 !important; /* Invert color on hover for high contrast */
+    border-color: transparent !important;
+}
+
+/* Service Visual Panel Hover */
+.service-visual-panel {
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.service-visual-panel:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.service-visual-icon {
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+}
+
+.service-visual-panel:hover .service-visual-icon {
+    transform: scale(1.15) rotate(-5deg);
+    filter: drop-shadow(0 0 15px currentColor);
+}
+
+.service-visual-title {
+    transition: text-shadow 0.3s ease;
+}
+
+.service-visual-panel:hover .service-visual-title {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Nav Menu Mega Dropdown Hover Sub-items */
+.dropdown-item {
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.dropdown-item:hover {
+    transform: translateX(8px);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
 }
 
 /* =========================================
