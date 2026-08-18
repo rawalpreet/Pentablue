@@ -9,7 +9,7 @@ import Contact from './pages/Contact';
 import SignUp from './pages/SignUp';
 import Testimonials from './pages/Testimonials';
 import Portfolio from './pages/Portfolio';
-import ParticleBackground from './components/ParticleBackground';
+import ThreeBackground from './components/ThreeBackground';
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -28,7 +28,7 @@ function App() {
 
   return (
     <>
-      <ParticleBackground />
+      <ThreeBackground />
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<AnimatedPage><Home /></AnimatedPage>} />

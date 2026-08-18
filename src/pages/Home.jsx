@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Smartphone, Camera, BarChart, LayoutTemplate, Quote } from 'lucide-react';
+import Hero3DObject from '../components/Hero3DObject';
 
 const Reveal = ({ children, delay = 0 }) => {
   const ref = useRef(null);
@@ -36,7 +37,7 @@ const Home = () => {
     <>
       {/* Hero Section */}
       <section className="hero">
-        <div className="container hero-container">
+        <div className="container hero-container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', alignItems: 'center', gap: '4rem' }}>
           <Reveal>
             <div className="hero-content">
               <div className="badge">OVER A DECADE OF EXCELLENCE</div>
@@ -48,6 +49,12 @@ const Home = () => {
                 <Link to="/services" className="btn btn-primary">Explore Our Work</Link>
                 <Link to="/contact" className="btn btn-secondary">Get in Touch <ArrowRight className="icon-sm" /></Link>
               </div>
+            </div>
+          </Reveal>
+          
+          <Reveal delay={0.2}>
+            <div className="hero-3d-wrapper">
+              <Hero3DObject />
             </div>
           </Reveal>
         </div>

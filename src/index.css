@@ -942,6 +942,20 @@ main {
    RESPONSIVE DESIGN
    ========================================= */
 @media (max-width: 992px) {
+    .hero-container {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        gap: 2rem !important;
+    }
+
+    .hero-3d-wrapper {
+        height: 300px;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
